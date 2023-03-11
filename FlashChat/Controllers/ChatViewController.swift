@@ -14,7 +14,8 @@ class ChatViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        title = "⚡️FlashChat"
+        navigationItem.hidesBackButton = true
     }
     
     @IBAction func sendPressed(_ sender: UIButton) {
@@ -24,6 +25,7 @@ class ChatViewController: UIViewController {
         // possobility to sign out a user
         do {
           try Auth.auth().signOut()
+            navigationController?.popToRootViewController(animated: true)
         } catch let signOutError as NSError {
           print("Error signing out: %@", signOutError)
         }
