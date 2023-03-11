@@ -4,10 +4,8 @@
 //
 //  Created by Vitali Martsinovich on 2023-02-26.
 //
-
 import UIKit
-
-import UIKit
+import Firebase
 
 class ChatViewController: UIViewController {
 
@@ -22,5 +20,13 @@ class ChatViewController: UIViewController {
     @IBAction func sendPressed(_ sender: UIButton) {
     }
     
-
+    @IBAction func logOutPressed(_ sender: UIBarButtonItem) {
+        // possobility to sign out a user
+        do {
+          try Auth.auth().signOut()
+        } catch let signOutError as NSError {
+          print("Error signing out: %@", signOutError)
+        }
+    }
+    
 }
